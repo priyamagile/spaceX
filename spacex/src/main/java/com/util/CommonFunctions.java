@@ -1092,6 +1092,12 @@ public class CommonFunctions {
             return false;
         }
     }
+
+    public void newMethod(){
+
+
+        System.out.println("asdadasdasdasd");
+    }
 }
 
 
