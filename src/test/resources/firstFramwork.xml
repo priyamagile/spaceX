@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel test suite">
+    <test name="test">
+        <parameter name="browserName" value="chrome"/>
+        <parameter name="selGrid" value="false"/>
+        <parameter name="url" value="http://180.211.99.165:8080/rp/servicehub_cms/#/"/>
+        <classes>
+            <class name="com.tc.TestCase"/>
+
+        </classes>
+    </test>
+</suite>
