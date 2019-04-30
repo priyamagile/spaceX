@@ -31,38 +31,6 @@ public class CommonFunctions {
         wait = new WebDriverWait(driver, 30);
     }
 
-    //Verify page name method
-    public boolean verifyPageTitle(By element, String title) throws Exception {
-        try {
-            WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-            if (webElement.getText().equals(title)) {
-                System.out.println("Login page title:-Page title verify successfully.");
-                return true;
-            } else {
-                System.out.println("Login page title:-Page title not verify successfully.");
-                return false;
-            }
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-
-    //Verify validation message method
-    public boolean verifyValidation(By element, String validation) throws Exception {
-        try {
-            WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-            if (webElement.getText().equals(validation)) {
-                System.out.println("Validation message verify successfully.");
-                return true;
-            } else {
-                System.out.println("Validation message not verify successfully.");
-                return false;
-            }
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-
     // click method
     public boolean click(By element) throws Exception {
         try {
@@ -74,67 +42,6 @@ public class CommonFunctions {
             throw e;
         }
     }
-
-    // inputData method
-    public boolean inputData(By element, String testData) throws Exception {
-        try {
-            WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-            webElement.sendKeys(testData);
-            return true;
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-
-    // Verify regex > email is valid or not method
-    public boolean verifyEmailRegex(By element, String emailData, By element2, String validation, By element3) throws Exception {
-        try {
-            String regex = "^(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\\-+)|([A-Za-z0-9]+\\.+)|([A-Za-z0-9]+\\++))*[A-Za-z0-9]+@((\\w+\\-+)|(\\w+\\.))*\\w{1,63}\\.[a-zA-Z]{2,6}$";
-            Pattern pattern = Pattern.compile(regex);
-            Matcher matcher = pattern.matcher(emailData);
-            boolean isPatten = matcher.matches();
-            WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-            webElement.sendKeys(emailData);
-            WebElement webElement1 = wait.until(ExpectedConditions.visibilityOfElementLocated(element3));
-            webElement1.click();
-            if (isPatten == true) {
-                List<WebElement> elements = driver.findElements(element2);
-                boolean isPresent = elements.size() > 0;
-                if (isPresent) {
-                    System.out.println("System not accept email address.");
-                    WebElement element1 = wait.until(ExpectedConditions.visibilityOfElementLocated(element2));
-                    if (element1.getText().equals(validation)) {
-                        System.out.println("Email :- Email validation message verify successfully.");
-                    } else {
-                        System.out.println("Email:- Email validation message not verify successfully.");
-                    }
-                    return false;
-                } else {
-                    System.out.println("Enter email is correct.");
-                    return true;
-                }
-            } else {
-                System.out.println("Email pattern not verify with regex, Please enter valid email.");
-                List<WebElement> elements = driver.findElements(element2);
-                boolean isPresent = elements.size() > 0;
-                if (isPresent) {
-                    WebElement element1 = wait.until(ExpectedConditions.visibilityOfElementLocated(element2));
-                    if (element1.getText().equals(validation)) {
-                        System.out.println("Email:- Email validation message verify successfully.");
-                    } else {
-                        System.out.println("Email:- Email validation message not verify successfully.");
-                    }
-                    return true;
-                } else {
-                    System.out.println("Validation message not looking and system accept email.");
-                    return false;
-                }
-            }
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-
     // clear method
     public boolean clear(By element) throws Exception {
         try {
@@ -145,72 +52,6 @@ public class CommonFunctions {
             throw e;
         }
     }
-
-    //Verify Password regex
-    public boolean verifyPasswordRegex(By element, String passwordData, By element1, By element2, String validationMessage, By element3, String validationMessage2, By element4, String validationMessage3) throws Exception {
-        try {
-            String regex = "^(?=.*[0-9a-zA-Z@#$%^&+=])(?=\\S+$).{6,16}$";
-            Pattern pattern = Pattern.compile(regex);
-            Matcher matcher = pattern.matcher(passwordData);
-            boolean isPassword = matcher.matches();
-            String blankpasswordRegex = "^(\\s+$)$";
-            Pattern pattern1 = Pattern.compile(blankpasswordRegex);
-            Matcher matcher1 = pattern1.matcher(passwordData);
-            boolean isPasswordBlank = matcher1.matches();
-
-            WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-            webElement.sendKeys(passwordData);
-            WebElement webElement1 = wait.until(ExpectedConditions.elementToBeClickable(element1));
-            webElement1.click();
-            if (isPassword) {
-                System.out.println("You enter valid password.");
-                return true;
-            } else if (passwordData.length() < 6) {
-                System.out.println("Password:- Less than 6 characters.");
-                WebElement webElement2 = wait.until(ExpectedConditions.visibilityOfElementLocated(element2));
-                if (webElement2.getText().equals(validationMessage)) {
-                    System.out.println("Less number password validation:- Validation message is correct.");
-                    return true;
-                } else {
-                    System.out.println("Less number password validation:- Validation message is wrong.");
-                    return false;
-                }
-            } else if (passwordData.length() > 16) {
-                System.out.println("Password:- More than 16 characters.");
-                WebElement webElement3 = wait.until(ExpectedConditions.visibilityOfElementLocated(element3));
-                if (webElement3.getText().equals(validationMessage2)) {
-                    System.out.println("More number password validation:- Validation message is correct.");
-                    return true;
-                } else {
-                    System.out.println("More number password validation:- Validation message is wrong.");
-                    return false;
-                }
-            } else if (isPasswordBlank) {
-                System.out.println("Password:- password should not be blank space.");
-                WebElement webElement4 = wait.until(ExpectedConditions.visibilityOfElementLocated(element4));
-                if (webElement4.getText().equals(validationMessage3)) {
-                    System.out.println("Blank password validation:- Validation message is correct.");
-                    return true;
-                } else {
-                    System.out.println("Blank password validation:- Validation message is wrong.");
-                    return false;
-                }
-            } else {
-                System.out.println("Password:- password field not accept blank space.");
-                WebElement webElement4 = wait.until(ExpectedConditions.visibilityOfElementLocated(element4));
-                if (webElement4.getText().equals(validationMessage3)) {
-                    System.out.println("Blank password validation:- Validation message is correct.");
-                    return true;
-                } else {
-                    System.out.println("Blank password validation:- Validation message is wrong.");
-                    return false;
-                }
-            }
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-
     //Verify dialog validation message method
     public boolean verifyDialogValidation(By element, String validation) throws Exception {
         try {
@@ -235,7 +76,6 @@ public class CommonFunctions {
             throw e;
         }
     }
-
     public boolean allProject(By element) throws Exception {
 
         try {
@@ -246,7 +86,6 @@ public class CommonFunctions {
         }
         return true;
     }
-
     public boolean allScreens(By element) throws Exception {
         try {
             List<WebElement> allScreens = driver.findElements(element);
@@ -256,8 +95,6 @@ public class CommonFunctions {
         }
         return true;
     }
-
-
     public boolean noReqLabelisPresent(By noRequirementFoundLabel, String s) throws Exception {
 
         try {
@@ -282,8 +119,6 @@ public class CommonFunctions {
             throw e;
         }
     }
-
-
     public void clickOnNewReqButton(By newReuqirementBtn, By requirementTextBox, By saveButton, By cancelButton, By successfullyAddedDialog, By lessThenFiveChar, String lessThenFiveCharValidation, By pleaseEnterRequirement, String enterRequirementText) throws Exception {
         try {
             ArrayList<String> getData = new ArrayList<String>();
@@ -1091,12 +926,6 @@ public class CommonFunctions {
         catch (Exception e){
             return false;
         }
-    }
-
-    public void newMethod(){
-
-
-        System.out.println("asdadasdasdasd");
     }
 }
 
