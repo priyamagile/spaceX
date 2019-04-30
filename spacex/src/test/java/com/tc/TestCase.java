@@ -421,13 +421,13 @@ public class TestCase extends BaseTest {
     @Test(description = "TC-24 | Click On New Requirement Button | Login Test case", priority = 24)
     public void Testcase24(Method method) throws Exception {
 
-        com.extentreport.ExtentTestManager.startTest(method.getName(), "Click on new Requirement Button");
-        com.extentreport.ExtentTestManager.getTest().setDescription(" Click On New Requirement Button");
+        ExtentTestManager.startTest(method.getName(),"Click On New Requirement Button");
+        ExtentTestManager.getTest().getTest().setName("TC-24:- Click On New Requirement Button");
+        ExtentTestManager.getTest().assignCategory("Screen details");
 
         ScreenDetailPo screenDetailPo = new ScreenDetailPo(driver);
         CommonFunctions commonFunctions = new CommonFunctions(driver);
 
-        Assert.assertTrue(commonFunctions.allProject(screenDetailPo.allProjects), "User not be able to open project");
         Assert.assertTrue(commonFunctions.allScreens(screenDetailPo.allScreens), "User not able to open screen");
         Assert.assertTrue(commonFunctions.click(screenDetailPo.closeButton), "User not able click on Button");
         boolean isPresent = commonFunctions.noReqLabelisPresent(screenDetailPo.noRequirementFoundLabel, "No requirements found for this screen!");
@@ -437,16 +437,16 @@ public class TestCase extends BaseTest {
         } else {
             commonFunctions.clickOnNewReqButton(screenDetailPo.newReuqirementBtn, screenDetailPo.requirementTextBox, screenDetailPo.saveButton, screenDetailPo.cancelButton, screenDetailPo.successfullyAddedDialog, screenDetailPo.lessThenFiveChar, "Requirement must contain at least 5 characters.", screenDetailPo.pleaseEnterRequirement, "Please enter requirement.");
         }
+        ExtentTestManager.endTest();
     }
 
-    @Test(testName = "TC-25 | Click On Edit Button | Screen Test case", priority = 25)
+    @Test(testName = "TC-25 | Click On Edit Requirement Button | Screen Test case", priority = 25)
     public void Testcase25(Method method) throws Exception {
 
 
-        com.extentreport.ExtentTestManager.startTest(method.getName(),"Edit Button");
-
-        com.extentreport.ExtentTestManager.getTest().getTest().setName("Click On Requirement Edit Button");
-        com.extentreport.ExtentTestManager.getTest().assignCategory("Requirement Module");
+        ExtentTestManager.startTest(method.getName(),"Click On Edit Requirement Button");
+        ExtentTestManager.getTest().getTest().setName("TC-25:- Click On Edit Requirement Button");
+        ExtentTestManager.getTest().assignCategory("Screen details");
 
         ScreenDetailPo screenDetailPo = new ScreenDetailPo(driver);
         CommonFunctions commonFunctions = new CommonFunctions(driver);
@@ -458,15 +458,15 @@ public class TestCase extends BaseTest {
         } else {
             commonFunctions.clickOnEditButton(screenDetailPo.newReuqirementBtn, screenDetailPo.requirementTextBox, screenDetailPo.saveButton, screenDetailPo.cancelButton, screenDetailPo.successfullyAddedDialog, screenDetailPo.lessThenFiveChar, "Requirement must contain at least 5 characters.", screenDetailPo.pleaseEnterRequirement, "Please enter requirement.",screenDetailPo.editButton,screenDetailPo.listOfRequirements);
         }
+        ExtentTestManager.endTest();
     }
-    @Test(testName = "TC-26 | Click On Delete Button | Screen Test case", priority = 26)
+    @Test(testName = "TC-26 | Click On Delete Requirement Button | Screen Test case", priority = 26)
     public void Testcase26(Method method) throws Exception {
 
 
-        com.extentreport.ExtentTestManager.startTest(method.getName(),"Delete Button");
-
-        com.extentreport.ExtentTestManager.getTest().getTest().setName("Click On Requirement Delete Button");
-        com.extentreport.ExtentTestManager.getTest().assignCategory("Requirement Module");
+        ExtentTestManager.startTest(method.getName(),"Click On Delete Requirement Button");
+        ExtentTestManager.getTest().getTest().setName("TC-26:- Click On Delete Requirement Button");
+        ExtentTestManager.getTest().assignCategory("Screen details");
 
         ScreenDetailPo screenDetailPo = new ScreenDetailPo(driver);
         CommonFunctions commonFunctions = new CommonFunctions(driver);
@@ -479,19 +479,21 @@ public class TestCase extends BaseTest {
         } else {
             commonFunctions.clickOnDeleteButton(screenDetailPo.deleteButton,screenDetailPo.listOfRequirements,screenDetailPo.deleteDialogText,"Are you sure want to delete this requirement?",screenDetailPo.clickOnOkButton,screenDetailPo.clickOnCancelButton,screenDetailPo.requirementDeletedSuccessfully,"Requirement deleted successfully",screenDetailPo.closeButton);
         }
+        ExtentTestManager.endTest();
     }
 
     @Test(description = "TC-27| Click On Browse Button | Login Test case", priority = 27)
     public void Testcase27(Method method) throws Exception {
 
-        com.extentreport.ExtentTestManager.startTest(method.getName(), "Click on Browse Button");
-        com.extentreport.ExtentTestManager.getTest().setDescription(" Click On Browse Button");
+        ExtentTestManager.startTest(method.getName(),"Click On Browse Button");
+        ExtentTestManager.getTest().getTest().setName("TC-27:- Click On Browse Button");
+        ExtentTestManager.getTest().assignCategory("Screen details");
 
         ScreenDetailPo screenDetailPo = new ScreenDetailPo(driver);
         CommonFunctions commonFunctions = new CommonFunctions(driver);
 
         commonFunctions.imageUpload(screenDetailPo.image);
-
+        ExtentTestManager.endTest();
 
     }
 
@@ -499,10 +501,9 @@ public class TestCase extends BaseTest {
     public void Testcase28(Method method) throws Exception {
 
 
-        com.extentreport.ExtentTestManager.startTest(method.getName(), "Comment Button");
-
-        com.extentreport.ExtentTestManager.getTest().getTest().setName("Click On Requirement Comment Button");
-        com.extentreport.ExtentTestManager.getTest().assignCategory("Requirement Module");
+        ExtentTestManager.startTest(method.getName(),"Click On Comment Button");
+        ExtentTestManager.getTest().getTest().setName("TC-28:- Click On Comment Button");
+        ExtentTestManager.getTest().assignCategory("Screen details");
 
         ScreenDetailPo screenDetailPo = new ScreenDetailPo(driver);
         CommonFunctions commonFunctions = new CommonFunctions(driver);
@@ -515,16 +516,16 @@ public class TestCase extends BaseTest {
         } else {
             commonFunctions.clickOnCommentButton(screenDetailPo.commentButton,screenDetailPo.backButton,screenDetailPo.listOfRequirements,screenDetailPo.noCommentLabel,"No comments found for this requirement!",screenDetailPo.commentTextBox,screenDetailPo.sendButton,screenDetailPo.commentRequirement,screenDetailPo.commentsList,screenDetailPo.pleaseEnterComment,screenDetailPo.pleaseEnterLess2Char,"Please enter comment.","Comment must contain at least 2 characters.",screenDetailPo.commentAddedSuccessfullyDialog,"Comment is created successfully",screenDetailPo.closeButton);
         }
+        ExtentTestManager.endTest();
     }
 
     @Test(testName = "TC-29 | Click On Comment Edit Button | Screen Test case", priority = 29)
     public void Testcase29(Method method) throws Exception {
 
 
-        com.extentreport.ExtentTestManager.startTest(method.getName(), "Edit Button In Comment Screen");
-
-        com.extentreport.ExtentTestManager.getTest().getTest().setName("Click On Comment Edit Button");
-        com.extentreport.ExtentTestManager.getTest().assignCategory("Comment Module");
+        ExtentTestManager.startTest(method.getName(),"Click On Comment Edit Button");
+        ExtentTestManager.getTest().getTest().setName("TC-29:- Click On Comment Edit Button");
+        ExtentTestManager.getTest().assignCategory("Screen details");
 
         ScreenDetailPo screenDetailPo = new ScreenDetailPo(driver);
         CommonFunctions commonFunctions = new CommonFunctions(driver);
@@ -545,16 +546,16 @@ public class TestCase extends BaseTest {
                 commonFunctions.clickOnCommentEditButton(screenDetailPo.commentEditButton, screenDetailPo.commentEditOkButton, screenDetailPo.commentEditCancelButton, screenDetailPo.commentEditTextBox, screenDetailPo.commentMessageList, screenDetailPo.commentTextBox, screenDetailPo.sendButton, screenDetailPo.commentUpdatedSuccessfullyDialog, "Comment is updated successfully", screenDetailPo.closeButton);
             }
         }
+        ExtentTestManager.endTest();
     }
 
     @Test(testName = "TC-30 | Click On Comment Delete Button | Screen Test case", priority = 30)
     public void Testcase30(Method method) throws Exception {
 
 
-        com.extentreport.ExtentTestManager.startTest(method.getName(), "Edit Button In Comment Screen");
-
-        com.extentreport.ExtentTestManager.getTest().getTest().setName("Click On Comment Edit Button");
-        com.extentreport.ExtentTestManager.getTest().assignCategory("Comment Module");
+        ExtentTestManager.startTest(method.getName(),"Click On Comment Delete Button");
+        ExtentTestManager.getTest().getTest().setName("TC-30:- Click On Comment Delete Button");
+        ExtentTestManager.getTest().assignCategory("Screen details");
 
         ScreenDetailPo screenDetailPo = new ScreenDetailPo(driver);
         CommonFunctions commonFunctions = new CommonFunctions(driver);
@@ -573,21 +574,22 @@ public class TestCase extends BaseTest {
                 commonFunctions.clickOnCommentDeleteButton(screenDetailPo.commentDeleteButton, screenDetailPo.commentDeleteOkButton, screenDetailPo.commentDeleteCancelButton, screenDetailPo.commentDeleteDialogText, "Are you sure want to delete this comment?", screenDetailPo.commentDeletedSuccessfullyDialog, "Comment is deleted successfully", screenDetailPo.commentMessageList, screenDetailPo.commentTextBox, screenDetailPo.sendButton,screenDetailPo.closeButton);
             }
         }
+        ExtentTestManager.endTest();
     }
 
     @Test(testName = "TC-31 | Send Invitation | Send Invitations Test case", priority = 31)
     public void Testcase31(Method method) throws Exception {
 
 
-        com.extentreport.ExtentTestManager.startTest(method.getName(), "Invite");
-
-        com.extentreport.ExtentTestManager.getTest().getTest().setName("Send Invitation");
-        com.extentreport.ExtentTestManager.getTest().assignCategory("Comment Module");
+        ExtentTestManager.startTest(method.getName(),"Send Invitation With Register or not Register.");
+        ExtentTestManager.getTest().getTest().setName("TC-31:- Send Invitation With Register or not Register.");
+        ExtentTestManager.getTest().assignCategory("Send Invitations");
 
         ScreenDetailPo screenDetailPo = new ScreenDetailPo(driver);
         CommonFunctions commonFunctions = new CommonFunctions(driver);
 
         commonFunctions.click(screenDetailPo.settingIcon);
         commonFunctions.sendInvitation(screenDetailPo.emailTextBox,screenDetailPo.sendInvitationButton,screenDetailPo.pleaseEnterEmailMessage,"Email is invalid.",screenDetailPo.emailIsInvalidMessage,"Please enter email.",screenDetailPo.sendInvitationSuccessDialog,"Project invitation link is sent successfully",screenDetailPo.closeButton);
+        ExtentTestManager.endTest();
     }
 }
