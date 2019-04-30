@@ -1,13 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Parallel test suite">
-
     <listeners>
-        <listener class-name="com.extentreport.listeners.AnnotationTransformer"/>
-        <listener class-name="com.extentreport.listeners.TestListener"/>
+        <listener class-name="com.ExtentReports.Listeners.TestListener"/>
+        <listener class-name="com.ExtentReports.Listeners.AnnotationTransformer"/>
     </listeners>
     <test name="test">
-
-
         <parameter name="browserName" value="chrome"/>
         <parameter name="selGrid" value="false"/>
         <parameter name="url" value="http://202.131.117.92:7023/#/login"/>
